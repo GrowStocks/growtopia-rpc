@@ -33,12 +33,16 @@ Why take time to fire this thing up everytime you run Growtopia? Here's a guide 
 + The location of Growtopia (usually located in C:\Users\username\AppData\Local\Growtopia)
 - After that, make a shortcut from Growtopia.exe in your desktop (in the directory up there) by right-clicking, going on "Send", and clicking "Desktop (create shortcut)"
 - Now pull up Notepad and paste the following (make sure to change the RPC and GT directories appopriately to your setup using the notes):
-``@echo off
+
+```
+@echo off
 cd "C:\Users\User\Desktop\"
 start growtopia-discord-rpc.exe
 cd "C:\Users\User\AppData\Local\Growtopia"
 start Growtopia.exe
-exit``
+exit
+```
+
 - Now hit Ctrl+Shift+S, choose "All Files" from the dropdown below, and save your batch with a .bat extension, such as gt-discord.bat
 
 This is essentially done, you now have a batch file you can use to launch both. But let's go a bit more for the style points and make a proper shortcut:
