@@ -13,7 +13,7 @@ class App {
         .then(res => res.json())
         .then(data => {
             if(!data || !data[0]) return;
-            if(parseFloat(data[0].name) > this.version){
+            if(data[0].name != this.version){
                 console.log(`[${this.version}] => [${data[0].name}]\nA new update is available for the Growtopia Discord Rich Presence program.\nVisit https://github.com/GrowStocks/growtopia-rpc to get the new version.`);
             }
         })
@@ -21,5 +21,5 @@ class App {
     }
 }
 
-const newApp = new App(1.0);
+const newApp = new App("v1.0");
 module.exports = newApp;
