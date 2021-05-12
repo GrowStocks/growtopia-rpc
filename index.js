@@ -67,7 +67,7 @@ data = null;
 
 	// When Growtopia is closed, clear the Rich Presence
 	Growtopia.on('exit', () => {
-		client.clearActivity().catch(e=>e);
+		process.exit(0);
 	});
 
 	// When the save.dat file is updated
