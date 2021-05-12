@@ -46,11 +46,12 @@ exit
 - Now hit Ctrl+Shift+S, choose "All Files" from the dropdown below, and save your batch with a .bat extension, such as gt-discord.bat
 
 This is essentially done, you now have a batch file you can use to launch both. But let's go a bit more for the style points and make a proper shortcut:
--Now go to the shortcut you have created in the step two, right click it and select "Properties"
--Replace the text in the "Target" section with the path to your batch (if you have it named gt.bat and it's on your desktop, it'll be something like C:\Users\User\Desktop\gt.bat)
--Press "Apply" and then press "Change Icon..."
--Press "OK" on the warning if there is one, and press "Browse". Then paste the Growtopia directory's address on the address bar. Choose Growtopia.exe, and then click the icon
--Press "OK" again, and tada, you now have a shortcut!
+
+- Now go to the shortcut you have created in the step two, right click it and select "Properties"
+- Replace the text in the "Target" section with the path to your batch (if you have it named gt.bat and it's on your desktop, it'll be something like C:\Users\User\Desktop\gt.bat)
+- Press "Apply" and then press "Change Icon..."
+- Press "OK" on the warning if there is one, and press "Browse". Then paste the Growtopia directory's address on the address bar. Choose Growtopia.exe, and then click the icon
+- Press "OK" again, and you're done!
 
 # Additional Notes
 
