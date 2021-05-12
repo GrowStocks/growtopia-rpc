@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 class Application {
     constructor() {
         this.clientID = "841694148758208542";
-        this.version = "v1.1";
+        this.version = "v1.1.1";
     }
 
     checkForUpdates(){
