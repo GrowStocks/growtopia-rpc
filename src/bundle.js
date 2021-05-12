@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+////// Ported from https://github.com/AykutSarac/Growtopia-RPC/blob/main/src/bundle.js //////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 const path = require('path');
 const fetch = require('node-fetch');
 
@@ -5,7 +9,7 @@ class App {
     constructor(version) {
         this.clientID = "841694148758208542";
         this.version = version;
-        this.processTitle = `Growtopia Discord Rich Presence by GrowStocks (v${version})`;
+        this.processTitle = `Growtopia Discord Rich Presence by GrowStocks (${version})`;
     }
 
     checkForUpdates(){
