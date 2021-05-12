@@ -35,4 +35,4 @@ class DiscordHelper extends EventEmitter {
 	}
 }
 
-module.exports = DiscordHelper;
+module.exports = new DiscordHelper();

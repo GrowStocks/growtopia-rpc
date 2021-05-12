@@ -1,16 +1,17 @@
-const App = require('./src/bundle.js');
-let GrowtopiaHelper = require("./modules/GrowtopiaHelper.js");
-let Growtopia = new GrowtopiaHelper();
-let DiscordHelper = require("./modules/DiscordHelper.js");
-let Discord = new DiscordHelper();
-let RPC = require("discord-rpc");
+const Application = require('./modules/Application.js');
+const Growtopia = require("./modules/GrowtopiaHelper.js");
+const Discord = require("./modules/DiscordHelper.js");
+const RPC = require("discord-rpc");
 let client,
 data = null;
 
 (async function run(){
 	// Rename the application title
-	process.title = App.processTitle;
+	process.title = `Growtopia Discord Rich Presence by GrowStocks (${Application.version})`;
+	
+	// Print the startup notice
 	console.log("Growtopia Discord Rich Presence is now running.\nYou can minimize this window if you would like to keep it running.\nOtherwise, to kill the program, close this window.")
+	
 	// Set the user presence
 	async function setPresence(){
 		try{
@@ -30,7 +31,7 @@ data = null;
 
 		// Login to the client and if successful, set the presence
 		client.login({
-		    clientId: App.clientID
+		    clientId: Application.clientID
 		}).then(() => {
 			setPresence();
 		}).catch(e => {
@@ -58,7 +59,7 @@ data = null;
 
 		// Login to the client and if successful, set the presence
 		client.login({
-		    clientId: App.clientID
+		    clientId: Application.clientID
 		}).then(() => {
 			setPresence();
 		}).catch(e=>e);
@@ -86,5 +87,5 @@ data = null;
 	// Initiate the application watchers
 	Growtopia.checkAppStatus();
 	Discord.checkAppStatus();
-	App.checkForUpdates();
+	Application.checkForUpdates();
 })();

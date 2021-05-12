@@ -79,4 +79,4 @@ class GrowtopiaHelper extends EventEmitter {
 	}
 }
 
-module.exports = GrowtopiaHelper;
+module.exports = new GrowtopiaHelper();
