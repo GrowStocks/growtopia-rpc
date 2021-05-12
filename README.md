@@ -8,11 +8,22 @@ Growtopia Discord Rich Presence by GrowStocks.
 - Open the .exe file (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
 
+# Instructions (if you're a skeptic)
+If you're skeptical about using the provided executables, you can compile the source code above yourself into a working executable file.
+
+## Prerequisites
+1. Have Node.JS installed on your system
+2. Open the Command Prompt
+3. Run `npm install` to install all required modules
+4. Run `pkg index.js` to compile the Node.JS script into a .exe file
+5. Follow the instructions found above starting from the second step
+
 # Expected Result
 
 ![Presence](https://i.imgur.com/5dYcvV1.png)
 
 # Running on startup
+
 If you would like to permanently run the script so that it automatically detects when you open the game and sets your presence without having to open it everytime, read on.
 - Search for "Task Scheduler" via the start menu
 - Click on "Task Scheduler (Local)", then on "Actions" (in the top-bar), then "Create Task.."
