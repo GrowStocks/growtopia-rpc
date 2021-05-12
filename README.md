@@ -25,21 +25,28 @@ If you're skeptical about using the provided executables, you can compile the so
 
 ![Presence](https://i.imgur.com/5dYcvV1.png)
 
-# Running on startup
+# Running with Growtopia
 
-If you would like to permanently run the script so that it automatically detects when you open the game and sets your presence without having to open it everytime, read on.
-- Search for "Task Scheduler" via the start menu
-- Click on "Task Scheduler (Local)", then on "Actions" (in the top-bar), then "Create Task.."
-- Fill in the fields as follows:
-+ Name: Growtopia Discord Rich Presence
-+ Configure for: (your version of Windows)
-- In the top-bar, click on "Triggers", then "New..."
-- Select "Begin the task:" -> "At log on", then click on "OK"
-- In the top-bar, click on "Actions", then "New..."
-- Fill in the fields as follows:
-+ Program/script: click on "Browse..." and select the .exe you downloaded previously
-- Click on "OK", and "OK" once again
-- You're done. Restart your computer for the changed to take effect
+Why take time to fire this thing up everytime you run Growtopia? Here's a guide on how to tie both Growtopia and growtopia-rpc into one useful shortcut:
+- You need to note the following somewhere in reach:
++ The location of growtopia-rpc (Hint: double click on the address bar in Explorer to highlight the address)
++ The location of Growtopia (usually located in C:\Users\username\AppData\Local\Growtopia)
+- After that, make a shortcut from Growtopia.exe in your desktop (in the directory up there) by right-clicking, going on "Send", and clicking "Desktop (create shortcut)"
+- Now pull up Notepad and paste the following (make sure to change the RPC and GT directories appopriately to your setup using the notes):
+``@echo off
+cd "C:\Users\User\Desktop\"
+start growtopia-discord-rpc.exe
+cd "C:\Users\User\AppData\Local\Growtopia"
+start Growtopia.exe
+exit``
+- Now hit Ctrl+Shift+S, choose "All Files" from the dropdown below, and save your batch with a .bat extension, such as gt-discord.bat
+
+This is essentially done, you now have a batch file you can use to launch both. But let's go a bit more for the style points and make a proper shortcut:
+-Now go to the shortcut you have created in the step two, right click it and select "Properties"
+-Replace the text in the "Target" section with the path to your batch (if you have it named gt.bat and it's on your desktop, it'll be something like C:\Users\User\Desktop\gt.bat)
+-Press "Apply" and then press "Change Icon..."
+-Press "OK" on the warning if there is one, and press "Browse". Then paste the Growtopia directory's address on the address bar. Choose Growtopia.exe, and then click the icon
+-Press "OK" again, and tada, you now have a shortcut!
 
 # Additional Notes
 
