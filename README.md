@@ -13,10 +13,13 @@ If you're skeptical about using the provided executables, you can compile the so
 
 ## Prerequisites
 1. Have Node.JS installed on your system
-2. Open the Command Prompt
-3. Run `npm install` to install all required modules
-4. Run `pkg index.js` to compile the Node.JS script into a .exe file
-5. Follow the instructions found above starting from the second step
+2. Have some knowledge on how programming works
+
+## How-to
+1. Open the Command Prompt
+2. Run `npm install` to install all required modules
+3. Run `pkg index.js` to compile the Node.JS script into a .exe file
+4. Follow the instructions found above starting from the second step
 
 # Expected Result
 
