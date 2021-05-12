@@ -1,0 +1,27 @@
+{
+  "name": "growtopia-discord-presence",
+  "version": "1.0",
+  "description": "Growtopia Discord Rich Presence by GrowStocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "growtopia",
+    "growstocks",
+    "rpc",
+    "presence",
+    "discord"
+  ],
+  "author": "DataCell",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "discord-rpc": "^3.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:GrowStocks/growtopia-rpc.git"
+  },
+  "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme",
+}
