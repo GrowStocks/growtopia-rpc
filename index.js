@@ -10,7 +10,7 @@ data = null;
 	process.title = `Growtopia Discord Rich Presence by GrowStocks (${Application.version})`;
 	
 	// Print the startup notice
-	console.log("Growtopia Discord Rich Presence is now running.\nYou can minimize this window if you would like to keep it running.\nOtherwise, to kill the program, close this window.")
+	console.log(`Growtopia Discord Rich Presence (${Application.version}) is now running.\nYou can minimize this window if you would like to keep it running.\nOtherwise, to kill the program, close this window.\nIf Growtopia and Discord are opened but the Rich Presence is not showing, try completely closing then re-opening Discord.`)
 
 	// Argument notices
 	if(process.argv.includes("ON_CLOSE_EXIT"))
