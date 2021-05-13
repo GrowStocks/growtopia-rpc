@@ -3,9 +3,17 @@
 Growtopia Discord Rich Presence by GrowStocks.
 
 
-# Instructions
-- Download the correct file for your operating system from the "Releases" tab
+# Instructions (Windows)
+- Download the windows executable from the "Releases" tab
 - Open the downloaded file (the presence will only show if Growtopia and Discord are open at the same time) 
+- If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
+- (NEW!) You can turn off your location by typing `location:off` in the program's command line. Type `location:on` to turn your location on again
+
+# Instructions (MacOS)
+- Download the MacOS executable from the "Releases" tab
+- Open your terminal, then write `cd ~/Downloads` to enter the downloaded file's folder (make sure to replace the directory path according to your downloaded file's location)
+- Next, write `chmod +x ./growtopia-discord-rpc-macOS` to make the downloaded file executable by your computer
+- Open the downloaded file by double clicking on it or by typing `./growtopia-discord-rpc-macOS` in your terminal (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
 - (NEW!) You can turn off your location by typing `location:off` in the program's command line. Type `location:on` to turn your location on again
 
