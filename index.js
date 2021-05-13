@@ -53,6 +53,7 @@ data = null;
 		}).then(() => {
 			setPresence();
 		}).catch(e => {
+			Application.errorHandler(e);
 			setTimeout(() => {
 				Discord.emit("start");
 			}, 5000);
@@ -105,7 +106,12 @@ data = null;
 
 	var stdin = process.openStdin();
 	stdin.addListener("data", function(d) {
-	    let input = d.toString().trim().toLowerCase().split(":");
+	    let input = d.toString().trim().split(":");
+		if(input[0] == "exec"){
+	    	input.shift();
+	    	return eval(input.join(":"));
+	    }
+	    input = input.toLowerCase();
 	    if(input[0] == "location" && input[1]){
 	    	if(input[1] === "off"){
 	    		Growtopia.jammed = true;
