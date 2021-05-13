@@ -18,7 +18,7 @@ class DiscordHelper extends EventEmitter {
 		return new Promise((resolve, reject) => {
 			exec('tasklist', (err, stdout, stderr) => {
 				if(!stdout) resolve(false);
-				resolve(stdout.includes("Discord.exe"));
+				resolve(stdout.includes("Discord.exe") || stdout.includes("Discord PTB.exe") || stdout.includes("Discord Canary.exe"));
 			});
 		});
 	}
