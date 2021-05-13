@@ -18,6 +18,7 @@ data = null;
 			data = await Growtopia.generateRPCData();
 			if(Growtopia.clientIsOpen) client.setActivity(data).catch(e=>e);
 		}catch(e){
+			console.log(e);
 			process.exit(0);
 		}
 	}
