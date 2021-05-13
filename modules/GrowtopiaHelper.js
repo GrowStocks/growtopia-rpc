@@ -2,50 +2,34 @@ const exec = require('child_process').exec;
 const findProcess = require('find-process');
 const EventEmitter = require('events');
 const fs = require('fs');
-const Application = require('../modules/Application.js');
+const System = require('../modules/System.js');
 
 class GrowtopiaHelper extends EventEmitter {
 	constructor(){
 		super();
+		// Growtopia client status
 		this.clientIsOpen = false;
-		this.startedPlaying = new Date();
-		this.jammed = false;
-		this.appData = Application.device.isMacOS ? `${process.env.HOME}/Library/Application Support/growtopia` : `${process.env.APPDATA}\\..\\Local\\Growtopia`;
-		this.splitter = Application.device.isMacOS ? '/' : `\\`
 
-		fs.watchFile(`${this.appData}${this.splitter}save.dat`, (curr, prev) => {
+		// The timestamp the user started playing on
+		this.startedPlaying = new Date();
+
+		// Whether or not location is turned off
+		this.jammed = false;
+
+		// App data path
+		this.appData = System.os.isMacOS ? `${process.env.HOME}/Library/Application Support/growtopia/` : `${process.env.APPDATA}\\..\\Local\\Growtopia\\`;
+
+		// Start watching save.dat for updates
+		fs.watchFile(`${this.appData}save.dat`, (curr, prev) => {
 			this.emit("saveDatUpdate");
 		});
 	}
 
 	async isOpen(){
-		if(Application.device.isMacOS) return await this.isOpenMacOS();
-		else return await this.isOpenWindows();
+		return await System.processExists('Growtopia', ['Growtopia', 'Growtopia.exe']);
 	}
 
-	async isOpenWindows(){
-		return new Promise((resolve, reject) => {
-			exec('tasklist', (err, stdout, stderr) => {
-				if(!stdout) resolve(false);
-				resolve(stdout.includes("Growtopia.exe"));
-			});
-		});
-	}
-
-	async isOpenMacOS(){
-		return new Promise((resolve, reject) => {
-			let isFound = findProcess('name', 'Growtopia').then(list => {
-				for (let process of list) {
-					if (process.name === 'Growtopia') {
-						resolve(true);
-					}
-				}
-				resolve(false);
-			})
-		});
-	}
-
-	checkAppStatus(){
+	async checkAppStatus(){
 		let self = this;
 		(async function check(){
 			let clientIsOpen = await self.isOpen();
@@ -65,7 +49,7 @@ class GrowtopiaHelper extends EventEmitter {
 
 	async readSaveDat(){
 		return new Promise((resolve, reject) => {
-			fs.readFile(`${this.appData}${this.splitter}save.dat`, 'utf8' , (err, data) => {
+			fs.readFile(`${this.appData}save.dat`, 'utf8' , (err, data) => {
 				if(err){
 					return reject(err);
 				}
@@ -76,9 +60,15 @@ class GrowtopiaHelper extends EventEmitter {
 
 	async getSaveDatItem(key){
 		return new Promise((resolve, reject) => {
-			this.readSaveDat().then(data => {
+			this.readSaveDat()
+			.then(data => {
+				// If key does not exist, return false
+				if(data.indexOf(key) < 0) resolve(false);
+
+				// Return the key's value
 				resolve(data[data.indexOf(key)+1]);
-			}).catch(e=>reject(e));
+			})
+			.catch(e=>reject(e));
 		});
 	}
 

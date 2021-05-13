@@ -1,45 +1,20 @@
 const exec = require('child_process').exec;
 const findProcess = require('find-process');
 const EventEmitter = require('events');
-const Application = require('../modules/Application.js');
+const System = require('../modules/System.js');
 
 class DiscordHelper extends EventEmitter {
 	constructor(){
 		super();
+		// Discord client status
 		this.clientIsOpen = false;
 	}
 
 	async isOpen(){
-		if(Application.device.isMacOS) return await this.isOpenMacOS();
-		else return await this.isOpenWindows();
+		return await System.processExists('Discord', ["Discord", "Discord PTB", "Discord Canary", "Discord.exe", "Discord PTB.exe", "Discord Canary.exe"]);
 	}
 
-	async isOpenWindows(){
-		return new Promise((resolve, reject) => {
-			exec('tasklist', (err, stdout, stderr) => {
-				if(!stdout) resolve(false);
-				resolve(stdout.includes("Discord.exe"));
-			});
-		});
-	}
-
-	async isOpenMacOs(){
-		return new Promise((resolve, reject) => {
-			let isFound = findProcess('name', 'Discord').then(list => {
-				for (let ver of ['', ' PTB', ' Canary']) {
-					for (let process of list) {
-						if (process.name === 'Discord' + ver) {
-							return true;
-						}
-					}
-				}
-				return false;
-			})
-			resolve(isFound);
-		});
-	}
-
-	checkAppStatus(){
+	async checkAppStatus(){
 		let self = this;
 		(async function check(){
 			let clientIsOpen = await self.isOpen();

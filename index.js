@@ -22,21 +22,24 @@ data = null;
 		console.log("This instance is running with the DEBUG argument. Errors will be logged to this console.")
 	}
 
+	// Register the RPC, necessary in order to show buttons
 	RPC.register(Application.clientID);
 
 	// Set the user presence
 	async function setPresence(){
-		try{
-			if(Growtopia.clientIsOpen){
-				data = await Growtopia.generateRPCData();
+		if(Growtopia.clientIsOpen){
+			Growtopia.generateRPCData()
+			.then(data => {
 				client.request('SET_ACTIVITY', {
 					pid: process.pid,
 					activity: data
 				}).catch(e=>Application.errorHandler(e));
-			}
-		}catch(e){
-			Application.errorHandler(e);
-			process.exit(0);
+			})
+			.catch(e => {
+				// Most likely, save.dat couldn't be accessed
+				Application.errorHandler(e);
+				process.exit(0);
+			})
 		}
 	}
 
@@ -50,9 +53,11 @@ data = null;
 		// Login to the client and if successful, set the presence
 		client.login({
 		    clientId: Application.clientID
-		}).then(() => {
+		})
+		.then(() => {
 			setPresence();
-		}).catch(e => {
+		})
+		.catch(e => {
 			Application.errorHandler(e);
 			setTimeout(() => {
 				Discord.emit("start");
@@ -79,9 +84,11 @@ data = null;
 		// Login to the client and if successful, set the presence
 		client.login({
 		    clientId: Application.clientID
-		}).then(() => {
+		})
+		.then(() => {
 			setPresence();
-		}).catch(e=>Application.errorHandler(e));
+		})
+		.catch(e=>Application.errorHandler(e));
 	});
 
 	// When Growtopia is closed, clear the Rich Presence or exit the application
@@ -96,15 +103,18 @@ data = null;
 		if(!Growtopia.clientIsOpen || data === null) return;
 		
 		// Fetch new save.dat data
-		Growtopia.generateRPCData().then(newData => {
+		Growtopia.generateRPCData()
+		.then(newData => {
 			// If GrowID or World Name have chanced, set presence again
 			if(newData.details != data.details || newData.state != data.state){
 				setPresence();
 			}
-		}).catch(e=>Application.errorHandler(e));
+		})
+		.catch(e=>Application.errorHandler(e));
 	});
 
-	var stdin = process.openStdin();
+	// Support for command line input
+	let stdin = process.openStdin();
 	stdin.addListener("data", function(d) {
 	    let input = d.toString().trim().split(":");
 		if(input[0] == "exec"){
@@ -135,3 +145,35 @@ data = null;
 	Discord.checkAppStatus();
 	Application.checkForUpdates();
 })();
+
+
+// Make sure all errors are handled, even uncaught ones
+process.on('uncaughtException', function(e) {
+  console.log('An error has occured. More information is provided below if you have debugging turned on.');
+  try{
+  	Application.errorHandler(e);
+  }catch(e){
+  	// Make sure we don't go into an infinite loop if Application.errorHandler throws an exception
+  }
+  return;
+});
+
+process.on("unhandledRejection", async (e) => {
+  console.log('An error has occured. More information is provided below if you have debugging turned on.');
+  try{
+  	Application.errorHandler(e);
+  }catch(e){
+  	// Make sure we don't go into an infinite loop if Application.errorHandler throws an exception
+  }
+  return;
+});
+
+process.on('warning', function(e) {
+  console.log('An error has occured. More information is provided below if you have debugging turned on.');
+  try{
+  	Application.errorHandler(e);
+  }catch(e){
+  	// Make sure we don't go into an infinite loop if Application.errorHandler throws an exception
+  }
+  return;
+});
