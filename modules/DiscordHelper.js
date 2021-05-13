@@ -1,4 +1,4 @@
-const exec = require('child_process').exec;
+const findProcess = require('find-process');
 const EventEmitter = require('events');
 
 class DiscordHelper extends EventEmitter {
@@ -9,10 +9,18 @@ class DiscordHelper extends EventEmitter {
 
 	async isOpen(){
 		return new Promise((resolve, reject) => {
-			exec('tasklist', (err, stdout, stderr) => {
-				if(!stdout) resolve(false);
-				resolve(stdout.includes("Discord.exe"));
-			});
+			let isFound = findProcess('name', 'Discord').then(list => {
+				for (let ver of ['', ' PTB', ' Canary']) {
+					for (let process of list) {
+						if (process.name === 'Discord' + ver) {
+							// console.log('[DEBUG] - Found ' + 'Discord' + ver);
+							return true;
+						}
+					}
+				}
+				return false;
+			})
+			resolve(isFound);
 		});
 	}
 
