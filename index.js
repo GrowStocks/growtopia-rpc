@@ -16,11 +16,18 @@ data = null;
 	if(process.argv.includes("ON_CLOSE_EXIT"))
 		console.log("This instance is running with the ON_CLOSE_EXIT argument. It will automatically exit when the Growtopia client is closed.")
 
+	RPC.register(Application.clientID);
+
 	// Set the user presence
 	async function setPresence(){
 		try{
 			data = await Growtopia.generateRPCData();
-			if(Growtopia.clientIsOpen) client.setActivity(data).catch(e=>e);
+			if(Growtopia.clientIsOpen){
+				client.request('SET_ACTIVITY', {
+					pid: process.pid,
+					activity: data
+				}).catch(e=>e);
+			}
 		}catch(e){
 			console.log(e);
 			process.exit(0);

@@ -87,11 +87,25 @@ class GrowtopiaHelper extends EventEmitter {
 			    resolve({
 			        details: `GrowID: ${await this.getSaveDatItem("tankid_name") || await this.getSaveDatItem("name") || "none"}`,
 			        state: `World: ${(await this.getSaveDatItem("lastworld")).toUpperCase() || "EXIT"}`,
-			        largeImageKey: "growtopia",
-			        largeImageText: "Growtopia",
-			        smallImageKey: "growstocks",
-			        smallImageText: "By GrowStocks",
-			        startTimestamp: this.startedPlaying
+			        assets: {
+			        	large_image: "growtopia",
+				        large_text: "Growtopia",
+				        small_image: "growstocks",
+				        small_text: "By GrowStocks"
+				    },
+			        timestamps: {
+			        	start: this.startedPlaying.getTime()
+					},
+					buttons: [
+						{
+							label: "Get Rich Presence",
+							url: "https://github.com/GrowStocks/growtopia-rpc/releases/latest"
+						},
+						{
+							label: "Open GrowStocks",
+							url: "https://growstocks.xyz"
+						}
+					]
 				});
 			}catch(e){
 				reject(e);
