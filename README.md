@@ -27,6 +27,7 @@ If you're skeptical about using the provided executables, you can compile the so
 
 # Running with Growtopia (Windows only)
 
+## Desktop shortcut
 If you would like to automatically run this script _only when you open Growtopia_, read on. Here's a guide on how to tie both Growtopia and growtopia-rpc into one useful shortcut:
 - Note the following somewhere in reach:
 + The location of growtopia-rpc (Hint: double click on the address bar in Explorer to highlight the address)
@@ -49,6 +50,13 @@ exit
 - Press "OK" on the warning if there is one, and press "Browse". Now, paste the Growtopia directory address in the address bar. Choose Growtopia.exe, and then click on the icon
 - Press "OK" again
 - You're done. You can now use this shortcut to boot up both Growtopia and growtopia-rpc at once
+
+## Windows start menu binding (optional)
+To also automatically open this program when you launch Growtopia from the start menu, read on.
+- Type "Growtopia" in the search bar
+- Right click on the result, and click on "Open file location"
+- Copy the shortcut you have created [in the tutorial above](#desktop-shortcut), then paste it in the Windows Explorer instance that you have opened in previous step (if prompted to replace the shortcut, click "Yes")
+- You're done. Launching Growtopia from the start menu should now automatically open the Growtopia RPC program
 
 # Running on startup (Windows only)
 
