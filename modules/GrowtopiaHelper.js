@@ -76,7 +76,7 @@ class GrowtopiaHelper extends EventEmitter {
 			        largeImageKey: "growtopia",
 			        largeImageText: "Growtopia",
 			        smallImageKey: "growstocks",
-			        smallImageText: "By GrowStocks",
+			        smallImageText: "RPC By GrowStocks",
 			        startTimestamp: this.startedPlaying
 				});
 			}catch(e){
