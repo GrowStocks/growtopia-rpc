@@ -1,15 +1,16 @@
+const exec = require('child_process').exec;
 const findProcess = require('find-process');
 const EventEmitter = require('events');
-var os = require('os');
 const fs = require('fs');
+const Application = require('../modules/Application.js');
 
 class GrowtopiaHelper extends EventEmitter {
 	constructor(){
 		super();
 		this.clientIsOpen = false;
 		this.startedPlaying = new Date();
-		this.appData = os.platform() === 'darwin' ? `${process.env.HOME}/Library/Application Support/growtopia` : `${process.env.APPDATA}\\..\\Local\\Growtopia`;
-		this.splitter = os.platform() === 'darwin' ? '/' : `\\`
+		this.appData = Application.device.isMacOS ? `${process.env.HOME}/Library/Application Support/growtopia` : `${process.env.APPDATA}\\..\\Local\\Growtopia`;
+		this.splitter = Application.device.isMacOS ? '/' : `\\`
 
 		fs.watchFile(`${this.appData}${this.splitter}save.dat`, (curr, prev) => {
 			this.emit("saveDatUpdate");
@@ -17,11 +18,24 @@ class GrowtopiaHelper extends EventEmitter {
 	}
 
 	async isOpen(){
+		if(Application.device.isMacOS) return await this.isOpenMacOS();
+		else return await this.isOpenWindows();
+	}
+
+	async isOpenWindows(){
+		return new Promise((resolve, reject) => {
+			exec('tasklist', (err, stdout, stderr) => {
+				if(!stdout) resolve(false);
+				resolve(stdout.includes("Growtopia.exe"));
+			});
+		});
+	}
+
+	async isOpenMacOS(){
 		return new Promise((resolve, reject) => {
 			let isFound = findProcess('name', 'Growtopia').then(list => {
 				for (let process of list) {
 					if (process.name === 'Growtopia') {
-						// console.log('[DEBUG] - Found Growtopia');
 						resolve(true);
 					}
 				}
@@ -76,7 +90,7 @@ class GrowtopiaHelper extends EventEmitter {
 			        largeImageKey: "growtopia",
 			        largeImageText: "Growtopia",
 			        smallImageKey: "growstocks",
-			        smallImageText: "RPC By GrowStocks",
+			        smallImageText: "By GrowStocks",
 			        startTimestamp: this.startedPlaying
 				});
 			}catch(e){

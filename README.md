@@ -4,7 +4,7 @@ Growtopia Discord Rich Presence by GrowStocks.
 
 
 # Instructions
-- Download the correct file for your OS from the "Releases" tab
+- Download the correct file for your operating system from the "Releases" tab
 - Open the downloaded file (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
 
