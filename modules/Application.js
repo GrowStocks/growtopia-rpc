@@ -1,10 +1,14 @@
 const path = require('path');
 const fetch = require('node-fetch');
+var os = require('os');
 
 class Application {
     constructor() {
         this.clientID = "841694148758208542";
-        this.version = "v1.2.1";
+        this.version = "v1.3.1";
+        this.device = {
+            isMacOS: os.platform() === 'darwin'
+        };
     }
 
     checkForUpdates(){
