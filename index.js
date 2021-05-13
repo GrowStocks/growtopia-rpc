@@ -103,6 +103,27 @@ data = null;
 		}).catch(e=>Application.errorHandler(e));
 	});
 
+	var stdin = process.openStdin();
+	stdin.addListener("data", function(d) {
+	    let input = d.toString().trim().toLowerCase().split(":");
+	    if(input[0] == "location" && input[1]){
+	    	if(input[1] === "off"){
+	    		Growtopia.jammed = true;
+	    	}else{
+	    		Growtopia.jammed = false;
+	    	}
+	    	setPresence();
+	    	console.log(`Your location has been turned ${Growtopia.jammed ? 'off' : 'on'}.`);
+	    }else if((input[0] == "debug" || input[0] == "debugging") && input[1]){
+	    	if(input[1] === "off"){
+	    		Application.debug = true;
+	    	}else{
+	    		Application.debug = false;
+	    	}
+	    	console.log(`Debugging mode has been turned ${Application.debug ? 'off' : 'on'}.`);
+	    }
+	});
+
 	// Initiate the application watchers
 	Growtopia.checkAppStatus();
 	Discord.checkAppStatus();

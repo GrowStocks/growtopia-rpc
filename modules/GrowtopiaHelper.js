@@ -9,6 +9,7 @@ class GrowtopiaHelper extends EventEmitter {
 		super();
 		this.clientIsOpen = false;
 		this.startedPlaying = new Date();
+		this.jammed = false;
 		this.appData = Application.device.isMacOS ? `${process.env.HOME}/Library/Application Support/growtopia` : `${process.env.APPDATA}\\..\\Local\\Growtopia`;
 		this.splitter = Application.device.isMacOS ? '/' : `\\`
 
@@ -86,7 +87,7 @@ class GrowtopiaHelper extends EventEmitter {
 			try{
 			    resolve({
 			        details: `GrowID: ${await this.getSaveDatItem("tankid_name") || await this.getSaveDatItem("name") || "none"}`,
-			        state: `World: ${(await this.getSaveDatItem("lastworld")).toUpperCase() || "EXIT"}`,
+			        state: `World: ${this.jammed ? "JAMMED!" : (await this.getSaveDatItem("lastworld")).toUpperCase() || "EXIT"}`,
 			        assets: {
 			        	large_image: "growtopia",
 				        large_text: "Growtopia",

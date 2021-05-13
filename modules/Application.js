@@ -5,7 +5,7 @@ var os = require('os');
 class Application {
     constructor() {
         this.clientID = "841694148758208542";
-        this.version = "v1.4.2";
+        this.version = "v1.5.2";
         this.debug = false;
         this.device = {
             isMacOS: os.platform() === 'darwin'

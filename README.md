@@ -7,6 +7,7 @@ Growtopia Discord Rich Presence by GrowStocks.
 - Download the correct file for your operating system from the "Releases" tab
 - Open the downloaded file (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
+- (NEW!) You can turn off your location by typing `location:off` in the program's command line. Type `location:on` to turn your location on again
 
 # Instructions (if you're a skeptic)
 If you're skeptical about using the provided executables, you can compile the source code above yourself into a working executable file.
