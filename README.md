@@ -25,33 +25,46 @@ If you're skeptical about using the provided executables, you can compile the so
 
 ![Presence](https://i.imgur.com/5dYcvV1.png)
 
-# Running with Growtopia
+# Running with Growtopia (Windows only)
 
-Why take time to fire this thing up everytime you run Growtopia? Here's a guide on how to tie both Growtopia and growtopia-rpc into one useful shortcut:
-- You need to note the following somewhere in reach:
+If you would like to automatically run this script _only when you open Growtopia_, read on. Here's a guide on how to tie both Growtopia and growtopia-rpc into one useful shortcut:
+- Note the following somewhere in reach:
 + The location of growtopia-rpc (Hint: double click on the address bar in Explorer to highlight the address)
 + The location of Growtopia (usually located in C:\Users\username\AppData\Local\Growtopia)
-- After that, make a shortcut from Growtopia.exe in your desktop (in the directory up there) by right-clicking, going on "Send", and clicking "Desktop (create shortcut)"
-- Now pull up Notepad and paste the following (make sure to change the RPC and GT directories appopriately to your setup using the notes):
+- Next, make a shortcut from Growtopia.exe onto your desktop (in the directory up there) by right-clicking, going on "Send", and clicking "Desktop (create shortcut)"
+- Now pull up Notepad and paste the following (make sure to change the Growtopia and growtopia-rpc directories appopriately to your setup using the notes above):
 
 ```
 @echo off
 cd "C:\Users\User\Desktop\"
-start growtopia-discord-rpc.exe
+start /MIN "" "growtopia-discord-rpc.exe" ON_CLOSE_EXIT
 cd "C:\Users\User\AppData\Local\Growtopia"
 start Growtopia.exe
 exit
 ```
-
-- Now hit Ctrl+Shift+S, choose "All Files" from the dropdown below, and save your batch with a .bat extension, such as gt-discord.bat
-
-This is essentially done, you now have a batch file you can use to launch both. But let's go a bit more for the style points and make a proper shortcut:
-
-- Now go to the shortcut you have created in the step two, right click it and select "Properties"
-- Replace the text in the "Target" section with the path to your batch (if you have it named gt.bat and it's on your desktop, it'll be something like C:\Users\User\Desktop\gt.bat)
+- Hit `Ctrl+Shift+S`, choose "All Files" from the dropdown below, and save your batch file with a .bat extension, such as `growtopia-rpc.bat`
+- Go to the shortcut you have created in step two, right click on it, and select "Properties"
+- Replace the text in the "Target" section with the path to your batch (if you have it named `growtopia-rpc.bat` and it's on your desktop, it'll be something like `C:\Users\User\Desktop\growtopia-rpc.bat`)
 - Press "Apply" and then press "Change Icon..."
-- Press "OK" on the warning if there is one, and press "Browse". Then paste the Growtopia directory's address on the address bar. Choose Growtopia.exe, and then click the icon
-- Press "OK" again, and you're done!
+- Press "OK" on the warning if there is one, and press "Browse". Now, paste the Growtopia directory address in the address bar. Choose Growtopia.exe, and then click on the icon
+- Press "OK" again
+- You're done. You can now use this shortcut to boot up both Growtopia and growtopia-rpc at once
+
+# Running on startup (Windows only)
+
+If you would like to permanently run the script so that it automatically detects when you open the game and sets your presence without having to open it everytime, read on.
+- Search for "Task Scheduler" via the start menu
+- Click on "Task Scheduler (Local)", then on "Actions" (in the top-bar), then "Create Task.."
+- Fill in the fields as follows:
++ Name: Growtopia Discord Rich Presence
++ Configure for: (your version of Windows)
+- In the top-bar, click on "Triggers", then "New..."
+- Select "Begin the task:" -> "At log on", then click on "OK"
+- In the top-bar, click on "Actions", then "New..."
+- Fill in the fields as follows:
++ Program/script: click on "Browse..." and select the .exe you downloaded previously
+- Click on "OK", and "OK" once again
+- You're done. Restart your computer for the changed to take effect
 
 # Additional Notes
 

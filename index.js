@@ -11,7 +11,11 @@ data = null;
 	
 	// Print the startup notice
 	console.log("Growtopia Discord Rich Presence is now running.\nYou can minimize this window if you would like to keep it running.\nOtherwise, to kill the program, close this window.")
-	
+
+	// Argument notices
+	if(process.argv.includes("ON_CLOSE_EXIT"))
+		console.log("This instance is running with the ON_CLOSE_EXIT argument. It will automatically exit when the Growtopia client is closed.")
+
 	// Set the user presence
 	async function setPresence(){
 		try{
@@ -65,9 +69,10 @@ data = null;
 		}).catch(e=>e);
 	});
 
-	// When Growtopia is closed, clear the Rich Presence
+	// When Growtopia is closed, clear the Rich Presence or exit the application
 	Growtopia.on('exit', () => {
-		process.exit(0);
+		if(process.argv.includes("ON_CLOSE_EXIT")) return process.exit(0);
+		client.clearActivity().catch(e=>e);
 	});
 
 	// When the save.dat file is updated
