@@ -115,12 +115,12 @@ data = null;
 	    	setPresence();
 	    	console.log(`Your location has been turned ${Growtopia.jammed ? 'off' : 'on'}.`);
 	    }else if((input[0] == "debug" || input[0] == "debugging") && input[1]){
-	    	if(input[1] === "off"){
+	    	if(input[1] === "on"){
 	    		Application.debug = true;
 	    	}else{
 	    		Application.debug = false;
 	    	}
-	    	console.log(`Debugging mode has been turned ${Application.debug ? 'off' : 'on'}.`);
+	    	console.log(`Debugging mode has been turned ${Application.debug ? 'on' : 'off'}.`);
 	    }
 	});
 
