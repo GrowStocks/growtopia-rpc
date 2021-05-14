@@ -121,7 +121,7 @@ data = null;
 	    	input.shift();
 	    	return eval(input.join(":"));
 	    }
-	    input = input.toLowerCase();
+	    input = input.join(":").toLowerCase().split(":");
 	    if(input[0] == "location" && input[1]){
 	    	if(input[1] === "off"){
 	    		Growtopia.jammed = true;

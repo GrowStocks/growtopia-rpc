@@ -5,7 +5,7 @@ var os = require('os');
 class Application {
     constructor() {
         this.clientID = "841694148758208542";
-        this.version = "v1.6.3";
+        this.version = "v1.6.4";
         this.debug = false;
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "growtopia-discord-presence",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Growtopia Discord Rich Presence by GrowStocks",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,10 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:GrowStocks/growtopia-rpc.git"
+  },
+  "bin": "index.js",
+  "pkg": {
+  	"outputPath": "dist"
   },
   "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme"
 }
