@@ -83,6 +83,9 @@ If you would like to permanently run the script so that it automatically detects
 - Click on "OK", and "OK" once again
 - You're done. Restart your computer for the changed to take effect
 
+# Known Bugs
+- The world name in the rich presence doesn't update when using the `/warp` command: this is due to the fact that the Growtopia client does not update the `lastworld` in `save.dat` when you use `/warp`, `/go`, and other commands that warp to other worlds.
+
 # Additional Notes
 
 This script makes use of the data found in the `save.dat` file on your computer to be able to parse your GrowID as well as the world you're in.
