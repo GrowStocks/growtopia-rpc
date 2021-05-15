@@ -259,10 +259,13 @@
 			"error",
 			"beside"
 		],
-		"indent": [
-			"error",
-			"tab"
-		],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
 		"jsx-quotes": "off",
 		"key-spacing": [
 			"error",
@@ -284,10 +287,6 @@
 			{
 				"position": "above"
 			}
-		],
-		"linebreak-style": [
-			"warn",
-			"unix"
 		],
 		"lines-around-comment": [
 			"warn",
@@ -411,7 +410,7 @@
 			"error",
 			{
 				"blocks": "never",
-				"classes": "always",
+				"classes": "never",
 				"switches": "never"
 			}
 		],
