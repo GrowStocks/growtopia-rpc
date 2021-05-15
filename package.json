@@ -1,10 +1,11 @@
 {
   "name": "growtopia-discord-presence",
-  "version": "1.6.5",
+  "version": "1.7.5",
   "description": "Growtopia Discord Rich Presence by GrowStocks",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src && eslint lib",
+    "test": "echo 'Tests are currently not set up.'"
   },
   "keywords": [
     "growtopia",
