@@ -527,7 +527,6 @@
 			"error",
 			"always"
 		],
-		"prefer-arrow-callback": "warn",
 		"prefer-const": "error",
 		"prefer-destructuring": "error",
 		"prefer-numeric-literals": "warn",
