@@ -199,12 +199,6 @@
 			"error",
 			"1tbs"
 		],
-		"camelcase": [
-			"error",
-			{
-				"ignoreDestructuring": true
-			}
-		],
 		"capitalized-comments": "off",
 		"comma-dangle": [
 			"error",
