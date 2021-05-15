@@ -58,7 +58,7 @@
 		"class-methods-use-this": "warn",
 		"complexity": [
 			"warn",
-			5
+			20
 		],
 		"consistent-return": "warn",
 		"curly": [
