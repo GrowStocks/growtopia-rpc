@@ -29,10 +29,11 @@ data = null;
 	async function setPresence(){
 		if(Growtopia.clientIsOpen){
 			Growtopia.generateRPCData()
-			.then(data => {
+			.then(rpc => {
+				data = rpc;
 				client.request('SET_ACTIVITY', {
 					pid: process.pid,
-					activity: data
+					activity: rpc
 				}).catch(e=>Application.errorHandler(e));
 			})
 			.catch(e => {
