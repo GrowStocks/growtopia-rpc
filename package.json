@@ -29,5 +29,8 @@
   "pkg": {
     "outputPath": "dist"
   },
-  "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme"
+  "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme",
+  "devDependencies": {
+    "eslint": "^7.26.0"
+  }
 }
