@@ -30,6 +30,15 @@ stdin.on("data", data => {
       manager.updatePresence(false);
       manager.emit("log", `[CLI]: Your location is now ${manager.growtopian.jammed ? "hidden" : "shown to the public"}.`);
       break;
+    case "debug":
+      if (manager.debug) {
+        manager.disableDebug(false);
+        manager.emit("log", "[CLI]: The debug mode has been disabed.");
+      } else {
+        manager.enableDebug(true);
+        manager.emit("log", "[CLI]: The debug mode has been enabled.");
+      }
+      break;
     default:
       manager.emit("log", "[CLI]: Unrecognized command, use /help to check available commands.");
       break;
