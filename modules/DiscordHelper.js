@@ -11,7 +11,7 @@ class DiscordHelper extends EventEmitter {
 	}
 
 	async isOpen(){
-		return await System.processExists('Discord', ["Discord", "Discord PTB", "Discord Canary", "Discord.exe", "Discord PTB.exe", "Discord Canary.exe"]);
+		return await System.processExists('Discord', ["Discord", "Discord PTB", "Discord Canary", "Discord Development", "Discord.exe", "Discord PTB.exe", "Discord Canary.exe", "Discord Development.exe"]);
 	}
 
 	async checkAppStatus(){
