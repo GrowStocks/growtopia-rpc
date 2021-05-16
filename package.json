@@ -20,7 +20,7 @@
   "dependencies": {
     "discord-rpc": "^3.2.0",
     "find-process": "^1.4.4",
-    "hclientify": "git+https://github.com/ModCord/http-client.git",
+    "hclientify": "^1.0.5",
     "os": "^0.1.1"
   },
   "repository": {
