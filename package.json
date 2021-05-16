@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint \"src/**\" && eslint \"lib/**\"",
-    "build": "pkg .",
-    "test": "echo 'Tests are currently not set up.'"
+    "build": "pkg -t node14-win -o dist/build.exe src/index.js",
+    "test": "echo \"Tests are currently not set up.\""
   },
   "keywords": [
     "growtopia",
