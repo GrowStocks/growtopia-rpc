@@ -7,7 +7,7 @@ Growtopia Discord Rich Presence by GrowStocks.
 - Download the windows executable from the "Releases" tab
 - Open the downloaded file (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
-- (NEW!) You can turn off your location by typing `location:off` in the program's command line. Type `location:on` to turn your location on again
+- (NEW!) `/commands` are here! Type `/help` in the Command Line Interface to get a list of available commands!
 
 # Instructions (MacOS)
 - Download the MacOS executable from the "Releases" tab
@@ -15,7 +15,7 @@ Growtopia Discord Rich Presence by GrowStocks.
 - Next, write `chmod +x ./growtopia-discord-rpc-macOS` to make the downloaded file executable by your computer
 - Open the downloaded file by double clicking on it or by typing `./growtopia-discord-rpc-macOS` in your terminal (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
-- (NEW!) You can turn off your location by typing `location:off` in the program's command line. Type `location:on` to turn your location on again
+- (NEW!) `/commands` are here! Type `/help` in the Command Line Interface to get a list of available commands!
 
 # Instructions (if you're a skeptic)
 If you're skeptical about using the provided executables, you can compile the source code above yourself into a working executable file.
@@ -27,7 +27,7 @@ If you're skeptical about using the provided executables, you can compile the so
 ## How-to
 1. Open the Command Prompt
 2. Run `npm install` to install all required modules
-3. Run `pkg index.js` to compile the Node.JS script into a .exe file
+3. Run `npm run build` to compile the Node.JS script into a .exe file
 4. Follow the instructions found above starting from the second step
 
 # Expected Result
@@ -47,7 +47,7 @@ If you would like to automatically run this script _only when you open Growtopia
 ```
 @echo off
 cd "C:\Users\User\Desktop\"
-start /MIN "" "growtopia-discord-rpc.exe" ON_CLOSE_EXIT
+start /MIN "" "growtopia-rpc-windows.exe" ON_CLOSE_EXIT
 cd "C:\Users\User\AppData\Local\Growtopia"
 start Growtopia.exe
 exit

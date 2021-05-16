@@ -1,10 +1,12 @@
 {
   "name": "growtopia-discord-presence",
-  "version": "1.6.5",
+  "version": "1.7.5",
   "description": "Growtopia Discord Rich Presence by GrowStocks",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"src/**\" && eslint \"lib/**\"",
+    "build": "pkg -t node14-win -o dist/growtopia-rpc-windows.exe src/index.js && pkg -t node14-macos-x64 -o dist/growtopia-rpc-macos src/index.js",
+    "test": "echo \"Tests are currently not set up.\""
   },
   "keywords": [
     "growtopia",
@@ -18,7 +20,7 @@
   "dependencies": {
     "discord-rpc": "^3.2.0",
     "find-process": "^1.4.4",
-    "node-fetch": "^2.6.1",
+    "hclientify": "^1.0.5",
     "os": "^0.1.1"
   },
   "repository": {
@@ -29,5 +31,9 @@
   "pkg": {
     "outputPath": "dist"
   },
-  "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme"
+  "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme",
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "pkg": "^5.1.0"
+  }
 }
