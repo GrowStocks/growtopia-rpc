@@ -1,6 +1,6 @@
 {
   "name": "growtopia-discord-presence",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "Growtopia Discord Rich Presence by GrowStocks",
   "main": "src/index.js",
   "scripts": {
