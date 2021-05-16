@@ -4,7 +4,8 @@
   "description": "Growtopia Discord Rich Presence by GrowStocks",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src && eslint lib",
+    "lint": "eslint \"src/**\" && eslint \"lib/**\"",
+    "build": "pkg .",
     "test": "echo 'Tests are currently not set up.'"
   },
   "keywords": [
@@ -32,6 +33,7 @@
   },
   "homepage": "https://github.com/GrowStocks/growtopia-rpc#readme",
   "devDependencies": {
-    "eslint": "^7.26.0"
+    "eslint": "^7.26.0",
+    "pkg": "^5.1.0"
   }
 }

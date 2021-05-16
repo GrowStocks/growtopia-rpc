@@ -25,8 +25,8 @@ stdin.on("data", data => {
       manager.emit("log", "[CLI]: /location <on/off> - Toggles your location visibility.");
       manager.emit("log", "[CLI]: /debug - Turns on the debug logging mode.");
       break;
-    case "toggle-location":
-      manager.growtopian.jammed = args[0] === "on";
+    case "location":
+      manager.growtopian.jammed = args[0] === "off";
       manager.updatePresence(false);
       manager.emit("log", `[CLI]: Your location is now ${manager.growtopian.jammed ? "hidden" : "shown to the public"}.`);
       break;
