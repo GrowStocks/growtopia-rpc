@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint \"src/**\" && eslint \"lib/**\"",
-    "build": "pkg -t node14-win -o dist/windows-build.exe src/index.js && pkg -t node14-macos-x64 -o dist/mac-build.exe src/index.js",
+    "build": "pkg -t node14-win -o dist/growtopia-rpc-windows.exe src/index.js && pkg -t node14-macos-x64 -o dist/growtopia-rpc-macos src/index.js",
     "test": "echo \"Tests are currently not set up.\""
   },
   "keywords": [

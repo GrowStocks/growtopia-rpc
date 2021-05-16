@@ -47,7 +47,7 @@ If you would like to automatically run this script _only when you open Growtopia
 ```
 @echo off
 cd "C:\Users\User\Desktop\"
-start /MIN "" "windows-build.exe" ON_CLOSE_EXIT
+start /MIN "" "growtopia-rpc-windows.exe" ON_CLOSE_EXIT
 cd "C:\Users\User\AppData\Local\Growtopia"
 start Growtopia.exe
 exit
