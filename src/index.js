@@ -5,6 +5,33 @@ const manager = new Manager({
   overwriteLogging: false
 });
 
-process.title = `Growtopia Discord Rich Presence by GrowStocks (${manager.updater.version})`;
+process.title = `Growtopia Rich Presence by GrowStocks v${manager.updater.version}`;
 process.on("unhandledRejection", manager.handleError);
 process.on("warning", manager.handleError);
+
+const stdin = process.openStdin();
+stdin.on("data", data => {
+  let input = data && data.toString() ? data.toString().trim() : "";
+  if (!input.startsWith("/")) return;
+
+  input = input.replace(/\//gu, "");
+  const args = input.split(/ +/gu);
+  const command = args.shift();
+
+  switch (command) {
+    case "help":
+      manager.emit("log", "[CLI]: Available commands:");
+      manager.emit("log", "[CLI]: /help -  Check the list of available commands.");
+      manager.emit("log", "[CLI]: /location <on/off> - Toggles your location visibility.");
+      manager.emit("log", "[CLI]: /debug - Turns on the debug logging mode.");
+      break;
+    case "toggle-location":
+      manager.growtopian.jammed = args[0] === "on";
+      manager.updatePresence(false);
+      manager.emit("log", `[CLI]: Your location is now ${manager.growtopian.jammed ? "hidden" : "shown to the public"}.`);
+      break;
+    default:
+      manager.emit("log", "[CLI]: Unrecognized command, use /help to check available commands.");
+      break;
+  }
+});
