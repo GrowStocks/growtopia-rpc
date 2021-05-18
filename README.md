@@ -12,8 +12,8 @@ Growtopia Discord Rich Presence by GrowStocks.
 # Instructions (MacOS)
 - Download the MacOS executable from the "Releases" tab
 - Open your terminal, then write `cd ~/Downloads` to enter the downloaded file's folder (make sure to replace the directory path according to your downloaded file's location)
-- Next, write `chmod +x ./growtopia-discord-rpc-macOS` to make the downloaded file executable by your computer
-- Open the downloaded file by double clicking on it or by typing `./growtopia-discord-rpc-macOS` in your terminal (the presence will only show if Growtopia and Discord are open at the same time) 
+- Next, write `chmod +x ./growtopia-rpc-macos` to make the downloaded file executable by your computer
+- Open the downloaded file by double clicking on it or by typing `./growtopia-rpc-macos` in your terminal (the presence will only show if Growtopia and Discord are open at the same time) 
 - If the Rich Presence doesn't show on Discord, try completely closing then re-opening Discord
 - (NEW!) `/commands` are here! Type `/help` in the Command Line Interface to get a list of available commands!
 
@@ -27,7 +27,7 @@ If you're skeptical about using the provided executables, you can compile the so
 ## How-to
 1. Open the Command Prompt
 2. Run `npm install` to install all required modules
-3. Run `npm run build` to compile the Node.JS script into a .exe file
+3. Run `npm run build` to compile the Node.JS script into an executable file
 4. Follow the instructions found above starting from the second step
 
 # Expected Result
